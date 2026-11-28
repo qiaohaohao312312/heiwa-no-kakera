@@ -315,6 +315,7 @@ button {
 .fragment--thirtyone { top: 760px; left: 3500px; width: 180px; height: 180px; --rotation: -1deg; --float-duration: 9.8s; --float-delay: -6.4s; }
 .fragment--thirtytwo { top: 760px; left: 3800px; width: 180px; height: 180px; --rotation: 1.3deg; --float-duration: 10.5s; --float-delay: -3.7s; }
 .fragment--thirtythree { top: 760px; left: 4100px; width: 180px; height: 180px; --rotation: -0.7deg; --float-duration: 9.4s; --float-delay: -5.2s; }
+.fragment--thirtythree img { padding: 18px; box-sizing: border-box; }
 .fragment--thirtyfour { top: 760px; left: 4390px; width: 180px; height: 180px; --rotation: 1.1deg; --float-duration: 10.2s; --float-delay: -2.4s; }
 
 ::view-transition-group(selected-work) {
