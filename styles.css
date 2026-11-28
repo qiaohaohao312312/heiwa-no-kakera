@@ -106,7 +106,7 @@ button {
   top: 0;
   left: 0;
   width: 4700px;
-  height: 720px;
+  height: 1040px;
   transform: translate3d(var(--pan-x, 0), var(--pan-y, 0), 0);
   will-change: transform;
 }
@@ -312,8 +312,10 @@ button {
 .fragment--twentyeight { top: 380px; left: 4110px; width: 135px; height: 185px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -1.7s; }
 .fragment--twentynine { top: 55px; left: 4385px; width: 210px; height: 180px; --rotation: -1.4deg; --float-duration: 8.9s; --float-delay: -5.6s; }
 .fragment--thirty { top: 405px; left: 4380px; width: 220px; height: 130px; --rotation: 0.8deg; --float-duration: 10.1s; --float-delay: -2.8s; }
-.fragment--thirtyone { top: 55px; left: 4700px; width: 180px; height: 180px; --rotation: -1deg; --float-duration: 9.8s; --float-delay: -6.4s; }
-.fragment--thirtytwo { top: 425px; left: 4685px; width: 200px; height: 110px; --rotation: 1.3deg; --float-duration: 10.5s; --float-delay: -3.7s; }
+.fragment--thirtyone { top: 760px; left: 3500px; width: 180px; height: 180px; --rotation: -1deg; --float-duration: 9.8s; --float-delay: -6.4s; }
+.fragment--thirtytwo { top: 760px; left: 3800px; width: 180px; height: 180px; --rotation: 1.3deg; --float-duration: 10.5s; --float-delay: -3.7s; }
+.fragment--thirtythree { top: 760px; left: 4100px; width: 180px; height: 180px; --rotation: -0.7deg; --float-duration: 9.4s; --float-delay: -5.2s; }
+.fragment--thirtyfour { top: 760px; left: 4390px; width: 180px; height: 180px; --rotation: 1.1deg; --float-duration: 10.2s; --float-delay: -2.4s; }
 
 ::view-transition-group(selected-work) {
   animation-duration: 720ms;

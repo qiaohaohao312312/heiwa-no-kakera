@@ -99,6 +99,18 @@ const works = [
     note: `assets/pm-notes/${stem}.png?v=${stem === "pm-04" ? 3 : 1}`,
     noteAlt,
   })),
+  ...[
+    ["人も動物も自由に", "animal-01", "忠犬ハチ公のような場面。飼い主と犬がじゃれあうような場面。"],
+    ["赤い実", "animal-02", "さるも人もゆたかな森で同じ物を食べているところ。"],
+    ["どうぶつえん", "animal-03", "ぞうの体をきれいにしたり、人間に世話をしてもらってよろこんでいる。"],
+    ["あたらしいいのち", "animal-04", "人間のなかまたちへ、命の誕生。"],
+  ].map(([title, stem, noteAlt]) => ({
+    title,
+    artwork: `assets/animal-art/${stem}.jpg?v=2`,
+    artworkAlt: `${title}を描いた作品`,
+    note: `assets/animal-notes/${stem}.png?v=2`,
+    noteAlt,
+  })),
 ];
 
 const viewport = document.querySelector(".viewport");
@@ -110,7 +122,7 @@ const detailArt = document.querySelector("#detail-art");
 const detailNote = document.querySelector("#detail-note");
 
 const WORLD_WIDTH = 4700;
-const WORLD_HEIGHT = 720;
+const WORLD_HEIGHT = 1040;
 const INITIAL_VIEW_WIDTH = 1280;
 const pointers = new Map();
 let panX = 0;
@@ -127,7 +139,7 @@ function renderCanvas() {
 
 function centerCanvas() {
   panX = (window.innerWidth - INITIAL_VIEW_WIDTH) / 2;
-  panY = (window.innerHeight - WORLD_HEIGHT) / 2;
+  panY = (window.innerHeight - 720) / 2;
   renderCanvas();
 }
 
