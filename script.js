@@ -83,6 +83,24 @@ const works = [
     note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}?v=4`,
     noteAlt,
   })),
+  ...[
+    ["りょこう", "pm-01", "家族で飛行機に乗ってりょこうする。"],
+    ["世界", "pm-02", ""],
+    ["楽しい日", "pm-03", "この家族が平和について、楽しいと思っている場面。"],
+    ["明るい大きな学校", "pm-04", "木の学校をドーム形にして、子どもたちが楽しく学校に行っている様子。"],
+    ["うさぎのひみつきち", "pm-05", "うさぎのひみつきちに子どもたちが向かっている様子。"],
+    ["キャンプに行く子どもたち", "pm-06", "子どもたちが平和にキャンプに行っています。晴れていて、きれいなキャンプ場です。"],
+    ["家", "pm-07", "平和な世界に住んでいる動物の家の中。"],
+    ["たのしい人々", "pm-08", "戦争が終わって、安全にしている。"],
+    ["しあわせな親子", "pm-09", "家で楽しくのんびりしている親子の様子。"],
+    ["きれいな世界", "pm-10", "天気がとてもきれいで、子どもが遊んでいる世界。"],
+  ].map(([title, stem, noteAlt], index) => ({
+    title,
+    artwork: `assets/pm-art/${stem}.jpg?v=1`,
+    artworkAlt: `${title}を描いた作品`,
+    note: index === 1 ? "" : `assets/pm-notes/${stem}.png?v=1`,
+    noteAlt,
+  })),
 ];
 
 const viewport = document.querySelector(".viewport");
@@ -93,7 +111,7 @@ const detailAnswer = document.querySelector("#detail-answer");
 const detailArt = document.querySelector("#detail-art");
 const detailNote = document.querySelector("#detail-note");
 
-const WORLD_WIDTH = 3420;
+const WORLD_WIDTH = 5000;
 const WORLD_HEIGHT = 720;
 const INITIAL_VIEW_WIDTH = 1280;
 const pointers = new Map();

@@ -105,7 +105,7 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3420px;
+  width: 5000px;
   height: 720px;
   transform: translate3d(var(--pan-x, 0), var(--pan-y, 0), 0);
   will-change: transform;
@@ -304,6 +304,16 @@ button {
 .fragment--twenty { top: 95px; left: 2815px; width: 200px; height: 105px; --rotation: -0.7deg; --float-duration: 9.6s; --float-delay: -5.5s; }
 .fragment--twentyone { top: 395px; left: 2860px; width: 110px; height: 180px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -3.2s; }
 .fragment--twentytwo { top: 60px; left: 3200px; width: 80px; height: 180px; --rotation: -1.5deg; --float-duration: 9.1s; --float-delay: -6.5s; }
+.fragment--twentythree { top: 70px; left: 3470px; width: 200px; height: 105px; --rotation: -1deg; --float-duration: 9.7s; --float-delay: -2.2s; }
+.fragment--twentyfour { top: 395px; left: 3530px; width: 90px; height: 150px; --rotation: 1.4deg; --float-duration: 10.3s; --float-delay: -5.1s; }
+.fragment--twentyfive { top: 55px; left: 3770px; width: 190px; height: 180px; --rotation: -1.5deg; --float-duration: 9.2s; --float-delay: -3.4s; }
+.fragment--twentysix { top: 405px; left: 3830px; width: 90px; height: 170px; --rotation: 1deg; --float-duration: 10.8s; --float-delay: -6.1s; }
+.fragment--twentyseven { top: 45px; left: 4100px; width: 180px; height: 180px; --rotation: -0.8deg; --float-duration: 9.5s; --float-delay: -4.2s; }
+.fragment--twentyeight { top: 410px; left: 4085px; width: 200px; height: 135px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -1.7s; }
+.fragment--twentynine { top: 55px; left: 4435px; width: 100px; height: 180px; --rotation: -1.4deg; --float-duration: 8.9s; --float-delay: -5.6s; }
+.fragment--thirty { top: 390px; left: 4400px; width: 170px; height: 180px; --rotation: 0.8deg; --float-duration: 10.1s; --float-delay: -2.8s; }
+.fragment--thirtyone { top: 55px; left: 4700px; width: 180px; height: 180px; --rotation: -1deg; --float-duration: 9.8s; --float-delay: -6.4s; }
+.fragment--thirtytwo { top: 425px; left: 4685px; width: 200px; height: 110px; --rotation: 1.3deg; --float-duration: 10.5s; --float-delay: -3.7s; }
 
 ::view-transition-group(selected-work) {
   animation-duration: 720ms;
