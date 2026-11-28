@@ -80,7 +80,7 @@ const works = [
     title,
     artwork: `assets/day2-art-v2/${file.replace(/\.(jpg|png)$/i, ".jpg")}?v=3`,
     artworkAlt: `${title}を描いた作品`,
-    note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}?v=3`,
+    note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}?v=4`,
     noteAlt,
   })),
 ];

@@ -2,6 +2,10 @@
   font-family: "Kodomo Rounded";
   src: url("assets/kodomo-rounded-light.woff2") format("woff2");
   font-display: swap;
+  /* This handmade face contains blank placeholders for unsupported kanji.
+     Restrict it to kana/punctuation so Japanese system fonts can supply every
+     title kanji instead of rendering an invisible glyph. */
+  unicode-range: U+0000-024F, U+3000-30FF, U+FF00-FFEF;
 }
 
 :root {
