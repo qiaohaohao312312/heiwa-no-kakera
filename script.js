@@ -80,6 +80,7 @@ let panY = 0;
 let gesture;
 let activeFragment;
 let suppressNextClick = false;
+let transitioning = false;
 
 function renderCanvas() {
   world.style.setProperty("--pan-x", `${panX}px`);
@@ -94,6 +95,46 @@ function centerCanvas() {
 
 function setInteracted() {
   viewport.classList.add("has-interacted");
+}
+
+async function animateSharedFallback(source, target, update) {
+  const sourceRect = source.getBoundingClientRect();
+  const clone = source.cloneNode(true);
+  clone.className = "shared-transition-clone";
+  Object.assign(clone.style, {
+    left: `${sourceRect.left}px`,
+    top: `${sourceRect.top}px`,
+    width: `${sourceRect.width}px`,
+    height: `${sourceRect.height}px`,
+  });
+  document.body.append(clone);
+  update();
+  target.style.opacity = "0";
+  const targetRect = target.getBoundingClientRect();
+  const animation = clone.animate([
+    {
+      left: `${sourceRect.left}px`,
+      top: `${sourceRect.top}px`,
+      width: `${sourceRect.width}px`,
+      height: `${sourceRect.height}px`,
+    },
+    {
+      left: `${targetRect.left}px`,
+      top: `${targetRect.top}px`,
+      width: `${targetRect.width}px`,
+      height: `${targetRect.height}px`,
+    },
+  ], {
+    duration: 720,
+    easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+    fill: "forwards",
+  });
+  try {
+    await animation.finished;
+  } finally {
+    target.style.opacity = "";
+    clone.remove();
+  }
 }
 
 function beginGesture() {
@@ -150,6 +191,15 @@ function endPointer(event) {
 viewport.addEventListener("pointerup", endPointer);
 viewport.addEventListener("pointercancel", endPointer);
 
+viewport.addEventListener("wheel", (event) => {
+  if (detail.classList.contains("is-visible")) return;
+  event.preventDefault();
+  panX -= event.deltaX || event.deltaY * 0.35;
+  panY -= event.deltaY;
+  setInteracted();
+  renderCanvas();
+}, { passive: false });
+
 viewport.addEventListener("keydown", (event) => {
   if (detail.classList.contains("is-visible")) return;
   const step = event.shiftKey ? 180 : 72;
@@ -167,12 +217,15 @@ viewport.addEventListener("keydown", (event) => {
   }
 });
 
-function openWork(index, fragment) {
+async function openWork(index, fragment) {
   if (suppressNextClick) {
     suppressNextClick = false;
     return;
   }
+  if (transitioning) return;
+  transitioning = true;
   activeFragment = fragment;
+  activeFragment.classList.add("is-selected");
   const work = works[index];
 
   detailAnswer.textContent = work.title;
@@ -180,19 +233,62 @@ function openWork(index, fragment) {
   detailArt.alt = work.artworkAlt;
   detailNote.src = work.note;
   detailNote.alt = work.noteAlt;
-  detail.classList.add("is-visible", "is-open");
-  detail.setAttribute("aria-hidden", "false");
-  document.body.classList.add("detail-open");
+  try {
+    await detailArt.decode();
+  } catch {}
+
+  const sourceImage = fragment.querySelector("img");
+  const reveal = () => {
+    sourceImage.style.viewTransitionName = "";
+    detailArt.style.viewTransitionName = "selected-work";
+    detail.classList.add("is-visible", "is-open");
+    detail.setAttribute("aria-hidden", "false");
+    document.body.classList.add("detail-open");
+  };
+
+  if (document.startViewTransition) {
+    sourceImage.style.viewTransitionName = "selected-work";
+    const transition = document.startViewTransition(reveal);
+    try {
+      await transition.finished;
+    } finally {
+      detailArt.style.viewTransitionName = "";
+    }
+  } else {
+    await animateSharedFallback(sourceImage, detailArt, reveal);
+  }
+
   detail.focus({ preventScroll: true });
+  transitioning = false;
 }
 
-function closeWork() {
-  if (!detail.classList.contains("is-visible")) return;
-  detail.classList.remove("is-open");
-  detail.classList.remove("is-visible");
-  detail.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("detail-open");
+async function closeWork() {
+  if (!detail.classList.contains("is-visible") || transitioning) return;
+  transitioning = true;
+  const targetImage = activeFragment?.querySelector("img");
+  const conceal = () => {
+    detailArt.style.viewTransitionName = "";
+    if (targetImage) targetImage.style.viewTransitionName = "selected-work";
+    detail.classList.remove("is-open", "is-visible");
+    detail.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("detail-open");
+  };
+
+  if (document.startViewTransition && targetImage) {
+    detailArt.style.viewTransitionName = "selected-work";
+    const transition = document.startViewTransition(conceal);
+    try {
+      await transition.finished;
+    } finally {
+      targetImage.style.viewTransitionName = "";
+    }
+  } else {
+    await animateSharedFallback(detailArt, targetImage, conceal);
+  }
+
+  activeFragment?.classList.remove("is-selected");
   activeFragment?.focus({ preventScroll: true });
+  transitioning = false;
 }
 
 fragments.forEach((fragment, index) => {

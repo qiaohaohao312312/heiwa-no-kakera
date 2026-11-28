@@ -37,18 +37,21 @@ button {
   inset: 0;
   overflow: hidden;
   background: var(--paper);
-  cursor: grab;
+  cursor: default;
   touch-action: none;
   user-select: none;
   transition: opacity 220ms ease-out;
 }
 
 .viewport:focus-visible {
-  outline: 1px solid color-mix(in oklch, var(--ink) 26%, transparent);
-  outline-offset: -4px;
+  outline: none;
 }
 
 .viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.viewport.is-dragging .fragment {
   cursor: grabbing;
 }
 
@@ -59,13 +62,15 @@ button {
 .instruction {
   position: fixed;
   z-index: 4;
-  top: 1.35rem;
-  left: 1.5rem;
+  right: 0;
+  bottom: 1.35rem;
+  left: 0;
   margin: 0;
   color: var(--muted);
   font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
+  text-align: center;
   pointer-events: none;
   transition: opacity 700ms ease-out;
 }
@@ -91,18 +96,19 @@ button {
   border: 0;
   outline: none;
   background: transparent;
-  cursor: pointer;
+  cursor: zoom-in;
   transform: translateZ(0) rotate(var(--rotation, 0deg));
   transform-origin: center;
-  transition: filter 180ms ease-out;
+  animation: fragment-float var(--float-duration, 8s) ease-in-out var(--float-delay, 0s) infinite alternate;
+  will-change: transform;
   -webkit-tap-highlight-color: transparent;
 }
 
 .fragment__prompt {
   position: absolute;
   z-index: 3;
-  top: var(--prompt-y, 50%);
-  left: var(--prompt-x, calc(100% + 1rem));
+  top: calc(100% + 0.5rem);
+  left: 50%;
   color: var(--ink);
   font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 12px;
@@ -112,7 +118,8 @@ button {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 160ms ease-out;
+  transform: translateX(-50%);
+  transition: opacity 300ms ease-out;
 }
 
 .fragment:hover .fragment__prompt,
@@ -120,7 +127,6 @@ button {
   opacity: 1;
 }
 
-.fragment__prompt::after,
 .detail__prompt::after {
   display: inline-block;
   width: 0.72em;
@@ -130,25 +136,11 @@ button {
   transform: translateY(-0.08em);
 }
 
-.fragment::after {
-  position: absolute;
-  inset: 8%;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
-  transition: border-color 260ms ease-out;
-}
-
 .fragment:hover,
-.fragment:focus-visible {
+.fragment:focus-visible,
+.fragment.is-selected {
   z-index: 2;
-  filter: drop-shadow(0 0.6rem 0.9rem oklch(0.2 0.005 260 / 0.08));
-  transform: translateZ(0) rotate(var(--rotation, 0deg));
-}
-
-.fragment:focus-visible::after {
-  border-color: var(--ink);
+  animation-play-state: paused;
 }
 
 .fragment img {
@@ -159,12 +151,27 @@ button {
   pointer-events: none;
 }
 
+@keyframes fragment-float {
+  from {
+    transform: translate3d(calc(var(--drift-x, 8px) * -1), calc(var(--drift-y, 6px) * -1), 0) rotate(calc(var(--rotation, 0deg) - var(--drift-r, 0.8deg)));
+  }
+
+  to {
+    transform: translate3d(var(--drift-x, 8px), var(--drift-y, 6px), 0) rotate(calc(var(--rotation, 0deg) + var(--drift-r, 0.8deg)));
+  }
+}
+
 .fragment--one {
   top: 60px;
   left: 60px;
-  width: 150px;
-  height: 190px;
+  width: 190px;
+  height: 210px;
   --rotation: -2.5deg;
+  --drift-x: 10px;
+  --drift-y: 7px;
+  --drift-r: 0.7deg;
+  --float-duration: 9.2s;
+  --float-delay: -2.8s;
 }
 
 .fragment--two {
@@ -173,6 +180,11 @@ button {
   width: 120px;
   height: 145px;
   --rotation: 1.6deg;
+  --drift-x: 7px;
+  --drift-y: 11px;
+  --drift-r: 1deg;
+  --float-duration: 7.7s;
+  --float-delay: -5.1s;
 }
 
 .fragment--three {
@@ -181,6 +193,11 @@ button {
   width: 205px;
   height: 205px;
   --rotation: -1deg;
+  --drift-x: 12px;
+  --drift-y: 6px;
+  --drift-r: 0.6deg;
+  --float-duration: 10.4s;
+  --float-delay: -1.4s;
 }
 
 .fragment--four {
@@ -189,6 +206,11 @@ button {
   width: 175px;
   height: 175px;
   --rotation: 1.4deg;
+  --drift-x: 8px;
+  --drift-y: 12px;
+  --drift-r: 0.9deg;
+  --float-duration: 8.6s;
+  --float-delay: -6.2s;
 }
 
 .fragment--five {
@@ -197,6 +219,11 @@ button {
   width: 250px;
   height: 235px;
   --rotation: -1.8deg;
+  --drift-x: 13px;
+  --drift-y: 8px;
+  --drift-r: 0.5deg;
+  --float-duration: 11.1s;
+  --float-delay: -4.3s;
 }
 
 .fragment--six {
@@ -205,6 +232,11 @@ button {
   width: 220px;
   height: 220px;
   --rotation: 1.2deg;
+  --drift-x: 9px;
+  --drift-y: 10px;
+  --drift-r: 0.8deg;
+  --float-duration: 9.7s;
+  --float-delay: -7s;
 }
 
 .fragment--seven {
@@ -213,6 +245,11 @@ button {
   width: 170px;
   height: 200px;
   --rotation: -1.2deg;
+  --drift-x: 11px;
+  --drift-y: 7px;
+  --drift-r: 0.6deg;
+  --float-duration: 8.9s;
+  --float-delay: -3.6s;
 }
 
 .fragment--eight {
@@ -221,15 +258,11 @@ button {
   width: 170px;
   height: 185px;
   --rotation: 1.8deg;
-  --prompt-x: auto;
-  --prompt-y: 35%;
-}
-
-.fragment--four .fragment__prompt,
-.fragment--eight .fragment__prompt,
-.fragment--nine .fragment__prompt {
-  right: calc(100% + 1rem);
-  left: auto;
+  --drift-x: 8px;
+  --drift-y: 13px;
+  --drift-r: 1deg;
+  --float-duration: 10.8s;
+  --float-delay: -5.8s;
 }
 
 .fragment--nine {
@@ -238,6 +271,32 @@ button {
   width: 135px;
   height: 165px;
   --rotation: -2.2deg;
+  --drift-x: 12px;
+  --drift-y: 9px;
+  --drift-r: 0.7deg;
+  --float-duration: 9.4s;
+  --float-delay: -2.1s;
+}
+
+::view-transition-group(selected-work) {
+  animation-duration: 720ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(selected-work),
+::view-transition-new(selected-work) {
+  height: 100%;
+  object-fit: contain;
+  animation-duration: 720ms;
+}
+
+.shared-transition-clone {
+  position: fixed;
+  z-index: 20;
+  display: block;
+  margin: 0;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .detail {
@@ -251,7 +310,7 @@ button {
   background: var(--paper);
   opacity: 0;
   pointer-events: none;
-  cursor: pointer;
+  cursor: zoom-out;
   transition: opacity 220ms ease-out, visibility 0s linear 220ms;
 }
 
@@ -334,9 +393,12 @@ button {
 
 @media (max-width: 720px) {
   .instruction {
-    top: 1rem;
-    left: 1rem;
+    top: auto;
+    right: 0;
+    bottom: 1rem;
+    left: 0;
     max-width: calc(100vw - 2rem);
+    margin-inline: auto;
   }
 
   .detail__content {
@@ -366,5 +428,15 @@ button {
   .detail h1 {
     transition-duration: 1ms;
     transition-delay: 0ms;
+  }
+
+  .fragment {
+    animation: none;
+  }
+
+  ::view-transition-group(selected-work),
+  ::view-transition-old(selected-work),
+  ::view-transition-new(selected-work) {
+    animation-duration: 1ms;
   }
 }
