@@ -285,19 +285,19 @@ button {
   --float-delay: -2.1s;
 }
 
-.fragment--ten { top: 760px; left: 40px; width: 250px; height: 160px; --rotation: -1deg; --float-duration: 10.4s; --float-delay: -2s; }
-.fragment--eleven { top: 760px; left: 360px; width: 250px; height: 160px; --rotation: 1.4deg; --float-duration: 9s; --float-delay: -4s; }
-.fragment--twelve { top: 760px; left: 690px; width: 250px; height: 160px; --rotation: -1.8deg; --float-duration: 11s; --float-delay: -6s; }
-.fragment--thirteen { top: 760px; left: 1020px; width: 250px; height: 160px; --rotation: 1deg; --float-duration: 8.6s; --float-delay: -1s; }
-.fragment--fourteen { top: 990px; left: 40px; width: 250px; height: 160px; --rotation: 1deg; --float-duration: 9.8s; --float-delay: -5s; }
-.fragment--fifteen { top: 990px; left: 360px; width: 250px; height: 160px; --rotation: -1.4deg; --float-duration: 10.8s; --float-delay: -3s; }
-.fragment--sixteen { top: 990px; left: 690px; width: 250px; height: 160px; --rotation: 1.8deg; --float-duration: 8.8s; --float-delay: -7s; }
-.fragment--seventeen { top: 990px; left: 1020px; width: 250px; height: 160px; --rotation: -0.8deg; --float-duration: 11.2s; --float-delay: -2.5s; }
-.fragment--eighteen { top: 1220px; left: 40px; width: 250px; height: 160px; --rotation: -1.2deg; --float-duration: 9.3s; --float-delay: -4.5s; }
-.fragment--nineteen { top: 1220px; left: 360px; width: 250px; height: 160px; --rotation: 1.5deg; --float-duration: 10.2s; --float-delay: -1.8s; }
-.fragment--twenty { top: 1220px; left: 690px; width: 250px; height: 160px; --rotation: -0.7deg; --float-duration: 9.6s; --float-delay: -5.5s; }
-.fragment--twentyone { top: 1220px; left: 1020px; width: 250px; height: 160px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -3.2s; }
-.fragment--twentytwo { top: 1450px; left: 360px; width: 250px; height: 160px; --rotation: -1.5deg; --float-duration: 9.1s; --float-delay: -6.5s; }
+.fragment--ten { top: 740px; left: 72px; width: 150px; height: 190px; --rotation: -1deg; --float-duration: 10.4s; --float-delay: -2s; }
+.fragment--eleven { top: 740px; left: 400px; width: 165px; height: 190px; --rotation: 1.4deg; --float-duration: 9s; --float-delay: -4s; }
+.fragment--twelve { top: 740px; left: 735px; width: 160px; height: 195px; --rotation: -1.8deg; --float-duration: 11s; --float-delay: -6s; }
+.fragment--thirteen { top: 735px; left: 1070px; width: 150px; height: 205px; --rotation: 1deg; --float-duration: 8.6s; --float-delay: -1s; }
+.fragment--fourteen { top: 980px; left: 78px; width: 145px; height: 190px; --rotation: 1deg; --float-duration: 9.8s; --float-delay: -5s; }
+.fragment--fifteen { top: 1000px; left: 374px; width: 210px; height: 145px; --rotation: -1.4deg; --float-duration: 10.8s; --float-delay: -3s; }
+.fragment--sixteen { top: 980px; left: 740px; width: 150px; height: 190px; --rotation: 1.8deg; --float-duration: 8.8s; --float-delay: -7s; }
+.fragment--seventeen { top: 980px; left: 1070px; width: 150px; height: 190px; --rotation: -0.8deg; --float-duration: 11.2s; --float-delay: -2.5s; }
+.fragment--eighteen { top: 1210px; left: 66px; width: 175px; height: 195px; --rotation: -1.2deg; --float-duration: 9.3s; --float-delay: -4.5s; }
+.fragment--nineteen { top: 1205px; left: 402px; width: 160px; height: 200px; --rotation: 1.5deg; --float-duration: 10.2s; --float-delay: -1.8s; }
+.fragment--twenty { top: 1235px; left: 705px; width: 220px; height: 150px; --rotation: -0.7deg; --float-duration: 9.6s; --float-delay: -5.5s; }
+.fragment--twentyone { top: 1210px; left: 1070px; width: 150px; height: 195px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -3.2s; }
+.fragment--twentytwo { top: 1440px; left: 405px; width: 150px; height: 190px; --rotation: -1.5deg; --float-duration: 9.1s; --float-delay: -6.5s; }
 
 ::view-transition-group(selected-work) {
   animation-duration: 720ms;
