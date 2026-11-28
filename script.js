@@ -113,16 +113,70 @@ const works = [
   })),
 ];
 
+const importedSpecs = [
+  ["china-01", "家でテレビを見る"], ["china-02", "公園で遊ぶ"],
+  ["china-03", "テレビでつながる"], ["china-04", "友だちと学校へ"],
+  ["china-05", "家族と暮らす"], ["china-06", "学校で笑う"],
+  ["china-07", "何気ない生活"], ["china-08", "家族と遊ぶ"],
+  ["china-09", "家族と一緒に"], ["china-10", "公園で遊ぶ子ども"],
+  ["china-11", "家に帰る子ども"], ["china-12", "みんなの笑顔"],
+  ["china-13", "楽しく遊ぶ"], ["china-14", "ドラえもんのいる日常"],
+  ["china-15", "安心してテレビを見る"],
+  ["japan-01", "みんなで遊ぶ"], ["japan-02", "お花畑"],
+  ["japan-03", "キャンプ"], ["japan-04", "友だちと食事"],
+  ["japan-05", "公園で過ごす"], ["japan-06", "ネコカフェ"],
+  ["japan-07", "木を見ながらお話"], ["japan-08", "家族で食事"],
+  ["japan-09", "家族の家"], ["japan-10", "親子でキャンプ"],
+  ["japan-11", "家族で食事"], ["japan-12", "友だちと遊ぶ"],
+  ["japan-13", "学校で学ぶ"], ["japan-14", "小学校の子どもたち"],
+  ["ukraine-01", "家族と木"], ["ukraine-02", "旅行へ"],
+  ["ukraine-03", "笑顔で話す"], ["ukraine-04", "世界をめぐる"],
+  ["ukraine-05", "家族の暮らし"], ["ukraine-06", "海辺の家族"],
+  ["ukraine-07", "楽しい旅行"], ["ukraine-09", "日本へ旅行"],
+  ["ukraine-10", "幸せを運ぶ"], ["ukraine-11", "家族の安心"],
+  ["ukraine-14", "楽しい休日"],
+];
+
+works.push(...importedSpecs.map(([id, title]) => ({
+  title,
+  artwork: `assets/imported-batch-3/${id}/artwork.png?v=1`,
+  artworkAlt: `${title}を描いた作品`,
+  note: `assets/imported-batch-3/${id}/description.png?v=1`,
+  noteAlt: `${title}についての手書きの説明`,
+})));
+
 const viewport = document.querySelector(".viewport");
 const world = document.querySelector(".world");
+
+importedSpecs.forEach(([id, title], offset) => {
+  const button = document.createElement("button");
+  button.className = "fragment fragment--imported";
+  button.type = "button";
+  button.dataset.index = String(34 + offset);
+  button.setAttribute("aria-label", `${title}を開く`);
+
+  const image = document.createElement("img");
+  image.src = `assets/imported-batch-3/${id}/element.png?v=1`;
+  image.alt = `${title}の切り抜き`;
+  image.draggable = false;
+
+  const prompt = document.createElement("span");
+  prompt.className = "fragment__prompt";
+  prompt.setAttribute("aria-hidden", "true");
+  prompt.textContent = "平和とは？";
+
+  button.append(image, prompt);
+  world.append(button);
+});
+
 const fragments = [...document.querySelectorAll(".fragment")];
 const detail = document.querySelector(".detail");
 const detailAnswer = document.querySelector("#detail-answer");
 const detailArt = document.querySelector("#detail-art");
 const detailNote = document.querySelector("#detail-note");
 
-const WORLD_WIDTH = 4700;
-const WORLD_HEIGHT = 1040;
+const WORLD_WIDTH = 5750;
+const WORLD_HEIGHT = 1280;
 const INITIAL_VIEW_WIDTH = 1280;
 const pointers = new Map();
 let panX = 0;
@@ -131,6 +185,37 @@ let gesture;
 let activeFragment;
 let suppressNextClick = false;
 let transitioning = false;
+
+function shuffledIndexes(length) {
+  const values = Array.from({ length }, (_, index) => index);
+  let seed = 20261129;
+  const random = () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+  for (let index = values.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [values[index], values[swapIndex]] = [values[swapIndex], values[index]];
+  }
+  return values;
+}
+
+const visualOrder = shuffledIndexes(fragments.length);
+const rowSizes = [19, 19, 18, 18];
+const rowStarts = rowSizes.reduce((starts, size, index) => {
+  starts.push((starts[index - 1] || 0) + (rowSizes[index - 1] || 0));
+  return starts;
+}, []);
+
+visualOrder.forEach((fragmentIndex, visualIndex) => {
+  const row = rowSizes.findIndex((size, index) => visualIndex < rowStarts[index] + size);
+  const column = visualIndex - rowStarts[row];
+  const fragment = fragments[fragmentIndex];
+  const jitterX = ((fragmentIndex * 37) % 35) - 17;
+  const jitterY = ((fragmentIndex * 53) % 25) - 12;
+  fragment.style.left = `${145 + column * 292 + (row % 2) * 36 + jitterX}px`;
+  fragment.style.top = `${55 + row * 315 + jitterY}px`;
+});
 
 function renderCanvas() {
   world.style.setProperty("--pan-x", `${panX}px`);

@@ -105,8 +105,8 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 4700px;
-  height: 1040px;
+  width: 5750px;
+  height: 1280px;
   transform: translate3d(var(--pan-x, 0), var(--pan-y, 0), 0);
   will-change: transform;
 }
@@ -317,6 +317,15 @@ button {
 .fragment--thirtythree { top: 760px; left: 4100px; width: 180px; height: 180px; --rotation: -0.7deg; --float-duration: 9.4s; --float-delay: -5.2s; }
 .fragment--thirtythree img { padding: 18px; box-sizing: border-box; }
 .fragment--thirtyfour { top: 760px; left: 4390px; width: 180px; height: 180px; --rotation: 1.1deg; --float-duration: 10.2s; --float-delay: -2.4s; }
+.fragment--imported {
+  width: 180px;
+  height: 180px;
+  --rotation: 0deg;
+  --drift-x: 8px;
+  --drift-y: 6px;
+  --drift-r: 0.7deg;
+  --float-duration: 10s;
+}
 
 ::view-transition-group(selected-work) {
   animation-duration: 720ms;
