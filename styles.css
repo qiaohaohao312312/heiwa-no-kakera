@@ -1,15 +1,7 @@
 @font-face {
-  font-family: "Yojo";
-  src: url("assets/yojo.woff2") format("woff2"), url("assets/yojo.ttf") format("truetype");
+  font-family: "Kodomo Rounded";
+  src: url("assets/kodomo-rounded-light.woff2") format("woff2");
   font-display: swap;
-  unicode-range: U+3000-303F, U+3040-309F, U+30A0-30FF;
-}
-
-@font-face {
-  font-family: "Peace Hand Kanji";
-  src: url("assets/peace-hand-kanji.woff2") format("woff2");
-  font-display: swap;
-  unicode-range: U+5E73, U+548C, U+5E78, U+5BB6, U+65CF, U+9752, U+7A7A, U+660E, U+65E5, U+5E38, U+5927, U+98DB, U+5929, U+4F7F, U+516C, U+5712, U+697D, U+4E16, U+754C, U+65B0;
 }
 
 :root {
@@ -17,7 +9,7 @@
   --ink: oklch(0.13 0.004 260);
   --muted: oklch(0.55 0.003 260);
   color-scheme: light;
-  font-family: "Peace Hand Kanji", "Yojo", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
@@ -71,7 +63,7 @@ button {
   left: 1.5rem;
   margin: 0;
   color: var(--muted);
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
   pointer-events: none;
@@ -112,7 +104,7 @@ button {
   top: var(--prompt-y, 50%);
   left: var(--prompt-x, calc(100% + 1rem));
   color: var(--ink);
-  font-family: "Peace Hand Kanji", "Yojo", sans-serif;
+  font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -288,7 +280,7 @@ button {
   align-items: baseline;
   gap: 0.2em;
   margin: 0 0 clamp(1rem, 3svh, 2rem);
-  font-family: "Peace Hand Kanji", "Yojo", sans-serif;
+  font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 1.1;
