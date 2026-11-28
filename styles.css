@@ -127,15 +127,6 @@ button {
   opacity: 1;
 }
 
-.detail__prompt::after {
-  display: inline-block;
-  width: 0.72em;
-  margin-left: 0.08em;
-  border-bottom: 1px solid currentColor;
-  content: "";
-  transform: translateY(-0.08em);
-}
-
 .fragment:hover,
 .fragment:focus-visible,
 .fragment.is-selected {
@@ -347,17 +338,13 @@ button {
 }
 
 .detail__answer {
-  width: min(32vw, 22rem);
-  min-width: 8rem;
+  width: auto;
+  max-width: min(48vw, 24rem);
   padding-bottom: 0.12em;
   overflow: hidden;
   border-bottom: 2px solid currentColor;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.detail__prompt::after {
-  border-bottom-width: 2px;
 }
 
 .detail__art-frame {
@@ -415,7 +402,7 @@ button {
   }
 
   .detail__answer {
-    width: min(52vw, 15rem);
+    max-width: min(68vw, 18rem);
   }
 }
 

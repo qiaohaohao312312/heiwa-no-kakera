@@ -7,7 +7,7 @@ const works = [
     noteAlt: "戦争が終わって、家をすぐに直して住めるようになった。",
   },
   {
-    title: "平和な青空",
+    title: "青空",
     artwork: "assets/heiwa-na-aozora.jpg",
     artworkAlt: "青空の下に人、木、荷物が描かれた作品",
     note: "assets/note-aozora.png",
@@ -21,7 +21,7 @@ const works = [
     noteAlt: "いらない服を送る。いろいろなものを分け合う。",
   },
   {
-    title: "大空を飛ぶ天使",
+    title: "大空をとぶ",
     artwork: "assets/ozora-no-tenshi.jpg",
     artworkAlt: "大空を飛ぶ天使が描かれた作品",
     note: "assets/note-ozora-no-tenshi.png",
@@ -35,14 +35,14 @@ const works = [
     noteAlt: "戦争中には行けない学校へ、日常の中で行く。",
   },
   {
-    title: "平和な日常、公園",
+    title: "日常、公園",
     artwork: "assets/heiwa-na-nichijo-koen.jpg",
     artworkAlt: "公園のぶらんこと休む人々が描かれた作品",
     note: "assets/note-heiwa-na-nichijo-koen.png",
     noteAlt: "平和な公園で子どもがぶらんこをして、お母さんがハンモックで休んでいる。",
   },
   {
-    title: "平和な家",
+    title: "家で過ごす",
     artwork: "assets/heiwa-na-ie.jpg",
     artworkAlt: "家で親子が穏やかに過ごす様子を描いた作品",
     note: "assets/note-heiwa-na-ie.png",
