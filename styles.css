@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Yojo";
-  src: url("assets/yojo.ttf") format("truetype");
+  src: url("assets/yojo.woff2") format("woff2"), url("assets/yojo.ttf") format("truetype");
   font-display: swap;
+  unicode-range: U+3000-303F, U+3040-309F, U+30A0-30FF;
 }
 
 :root {
@@ -118,6 +119,16 @@ button {
 .fragment:hover .fragment__prompt,
 .fragment:focus-visible .fragment__prompt {
   opacity: 1;
+}
+
+.fragment__prompt::after,
+.detail__prompt::after {
+  display: inline-block;
+  width: 0.72em;
+  margin-left: 0.08em;
+  border-bottom: 1px solid currentColor;
+  content: "";
+  transform: translateY(-0.08em);
 }
 
 .fragment::after {
@@ -285,6 +296,10 @@ button {
   border-bottom: 2px solid currentColor;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.detail__prompt::after {
+  border-bottom-width: 2px;
 }
 
 .detail__art-frame {
