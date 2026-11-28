@@ -88,7 +88,9 @@ button {
   font-family: "Kodomo Rounded", "Hiragino Maru Gothic ProN", sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
   transition: color 220ms ease-out;
 }
 
