@@ -78,7 +78,8 @@ const works = [
     ["すてきな学校にする", "14-43-10.0.jpg", "みんなで協力して、すてきな学校をつくること。"],
   ].map(([title, file, noteAlt]) => ({
     title,
-    artwork: `assets/day2/${file}`,
+    artwork: `assets/day2-elements/${file.replace(/\.(jpg|png)$/i, ".png")}`,
+    fullArtwork: `assets/day2/${file}`,
     artworkAlt: `${title}を描いた作品シート`,
     note: "",
     noteAlt,
@@ -250,7 +251,7 @@ async function openWork(index, fragment) {
   const work = works[index];
 
   detailAnswer.textContent = work.title;
-  detailArt.src = work.artwork;
+  detailArt.src = work.fullArtwork || work.artwork;
   detailArt.alt = work.artworkAlt;
   detailNote.src = work.note;
   detailNote.alt = work.noteAlt;
