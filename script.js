@@ -62,6 +62,27 @@ const works = [
     note: "assets/note-atarashii-ie.png",
     noteAlt: "うれしいことも、かなしいこともない。",
   },
+  ...[
+    ["幸せな家ぞく", "11-28-51.0.jpg", "家族が食卓を囲み、幸せに暮らす世界。"],
+    ["楽しい時間", "11-30-32.0.jpg", "戦争のない、楽しい時間を過ごせる世界。"],
+    ["あるべき日常", "11-32-41.0.png", "子どもが好きな服を着て、安心して暮らせる日常。"],
+    ["幸せな家ぞく", "11-35-12.0.jpg", "家族が一緒に暮らし、家で楽しく過ごせること。"],
+    ["いつもの時間", "11-37-44.0.jpg", "公園で子どもが元気よく遊べる、いつもの時間。"],
+    ["良い環境で学ぶ", "11-39-36.0.jpg", "子どもたちが安全な学校で学び、楽しく通えること。"],
+    ["にじいろ学校", "11-42-40.0.jpg", "みんながつながり、あたたかい学校で学べること。"],
+    ["カラフルな学校", "11-44-47.0.png", "一人ひとりが安心して学べる、カラフルな学校。"],
+    ["赤ちゃん生まれた！", "14-33-30.0.png", "新しい命が生まれ、家族と暮らせるよろこび。"],
+    ["GWに発見", "14-35-42.0.jpg", "家族と過ごし、笑顔で発見を分かち合う時間。"],
+    ["みんなでお見舞い", "14-39-02.0.jpg", "病院にいる家族を、みんなでお見舞いに行けること。"],
+    ["はたらきに行く大人", "14-40-55.0.jpg", "大人が安心して働き、家族を支えられる暮らし。"],
+    ["すてきな学校にする", "14-43-10.0.jpg", "みんなで協力して、すてきな学校をつくること。"],
+  ].map(([title, file, noteAlt]) => ({
+    title,
+    artwork: `assets/day2/${file}`,
+    artworkAlt: `${title}を描いた作品シート`,
+    note: "",
+    noteAlt,
+  })),
 ];
 
 const viewport = document.querySelector(".viewport");
@@ -73,7 +94,7 @@ const detailArt = document.querySelector("#detail-art");
 const detailNote = document.querySelector("#detail-note");
 
 const WORLD_WIDTH = 1280;
-const WORLD_HEIGHT = 720;
+const WORLD_HEIGHT = 1680;
 const pointers = new Map();
 let panX = 0;
 let panY = 0;
@@ -233,6 +254,7 @@ async function openWork(index, fragment) {
   detailArt.alt = work.artworkAlt;
   detailNote.src = work.note;
   detailNote.alt = work.noteAlt;
+  detailNote.closest('.detail__note-frame').hidden = !work.note;
   try {
     await detailArt.decode();
   } catch {}
