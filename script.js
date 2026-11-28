@@ -78,9 +78,9 @@ const works = [
     ["すてきな学校にする", "14-43-10.0.jpg", "みんなで協力して、すてきな学校をつくること。"],
   ].map(([title, file, noteAlt]) => ({
     title,
-    artwork: `assets/day2-art/${file.replace(/\.(jpg|png)$/i, ".jpg")}`,
+    artwork: `assets/day2-art-v2/${file.replace(/\.(jpg|png)$/i, ".jpg")}`,
     artworkAlt: `${title}を描いた作品`,
-    note: `assets/day2-notes/${file.replace(/\.(jpg|png)$/i, ".jpg")}`,
+    note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}`,
     noteAlt,
   })),
 ];
@@ -93,8 +93,9 @@ const detailAnswer = document.querySelector("#detail-answer");
 const detailArt = document.querySelector("#detail-art");
 const detailNote = document.querySelector("#detail-note");
 
-const WORLD_WIDTH = 1280;
-const WORLD_HEIGHT = 1680;
+const WORLD_WIDTH = 3420;
+const WORLD_HEIGHT = 720;
+const INITIAL_VIEW_WIDTH = 1280;
 const pointers = new Map();
 let panX = 0;
 let panY = 0;
@@ -109,7 +110,7 @@ function renderCanvas() {
 }
 
 function centerCanvas() {
-  panX = (window.innerWidth - WORLD_WIDTH) / 2;
+  panX = (window.innerWidth - INITIAL_VIEW_WIDTH) / 2;
   panY = (window.innerHeight - WORLD_HEIGHT) / 2;
   renderCanvas();
 }
