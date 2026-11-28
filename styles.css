@@ -172,7 +172,7 @@ button {
   top: 60px;
   left: 60px;
   width: 190px;
-  height: 210px;
+  height: 188px;
   --rotation: -2.5deg;
   --drift-x: 10px;
   --drift-y: 7px;
@@ -184,8 +184,8 @@ button {
 .fragment--two {
   top: 120px;
   left: 300px;
-  width: 120px;
-  height: 145px;
+  width: 157px;
+  height: 180px;
   --rotation: 1.6deg;
   --drift-x: 7px;
   --drift-y: 11px;
@@ -197,8 +197,8 @@ button {
 .fragment--three {
   top: 35px;
   left: 560px;
-  width: 205px;
-  height: 205px;
+  width: 180px;
+  height: 188px;
   --rotation: -1deg;
   --drift-x: 12px;
   --drift-y: 6px;
@@ -210,8 +210,8 @@ button {
 .fragment--four {
   top: 100px;
   left: 980px;
-  width: 175px;
-  height: 175px;
+  width: 190px;
+  height: 182px;
   --rotation: 1.4deg;
   --drift-x: 8px;
   --drift-y: 12px;
@@ -223,8 +223,8 @@ button {
 .fragment--five {
   top: 330px;
   left: 20px;
-  width: 250px;
-  height: 235px;
+  width: 190px;
+  height: 179px;
   --rotation: -1.8deg;
   --drift-x: 13px;
   --drift-y: 8px;
@@ -236,8 +236,8 @@ button {
 .fragment--six {
   top: 430px;
   left: 470px;
-  width: 220px;
-  height: 220px;
+  width: 190px;
+  height: 188px;
   --rotation: 1.2deg;
   --drift-x: 9px;
   --drift-y: 10px;
@@ -249,8 +249,8 @@ button {
 .fragment--seven {
   top: 270px;
   left: 780px;
-  width: 170px;
-  height: 200px;
+  width: 155px;
+  height: 180px;
   --rotation: -1.2deg;
   --drift-x: 11px;
   --drift-y: 7px;
@@ -262,8 +262,8 @@ button {
 .fragment--eight {
   top: 480px;
   left: 1060px;
-  width: 170px;
-  height: 185px;
+  width: 180px;
+  height: 184px;
   --rotation: 1.8deg;
   --drift-x: 8px;
   --drift-y: 13px;
@@ -275,8 +275,8 @@ button {
 .fragment--nine {
   top: 520px;
   left: 300px;
-  width: 135px;
-  height: 165px;
+  width: 190px;
+  height: 188px;
   --rotation: -2.2deg;
   --drift-x: 12px;
   --drift-y: 9px;
@@ -285,19 +285,19 @@ button {
   --float-delay: -2.1s;
 }
 
-.fragment--ten { top: 55px; left: 1335px; width: 170px; height: 205px; --rotation: -1deg; --float-duration: 10.4s; --float-delay: -2s; }
-.fragment--eleven { top: 390px; left: 1330px; width: 185px; height: 210px; --rotation: 1.4deg; --float-duration: 9s; --float-delay: -4s; }
-.fragment--twelve { top: 70px; left: 1635px; width: 175px; height: 210px; --rotation: -1.8deg; --float-duration: 11s; --float-delay: -6s; }
-.fragment--thirteen { top: 385px; left: 1640px; width: 165px; height: 215px; --rotation: 1deg; --float-duration: 8.6s; --float-delay: -1s; }
-.fragment--fourteen { top: 60px; left: 1940px; width: 165px; height: 210px; --rotation: 1deg; --float-duration: 9.8s; --float-delay: -5s; }
-.fragment--fifteen { top: 410px; left: 1915px; width: 225px; height: 155px; --rotation: -1.4deg; --float-duration: 10.8s; --float-delay: -3s; }
-.fragment--sixteen { top: 65px; left: 2240px; width: 165px; height: 210px; --rotation: 1.8deg; --float-duration: 8.8s; --float-delay: -7s; }
-.fragment--seventeen { top: 390px; left: 2240px; width: 165px; height: 210px; --rotation: -0.8deg; --float-duration: 11.2s; --float-delay: -2.5s; }
-.fragment--eighteen { top: 55px; left: 2525px; width: 185px; height: 215px; --rotation: -1.2deg; --float-duration: 9.3s; --float-delay: -4.5s; }
-.fragment--nineteen { top: 385px; left: 2535px; width: 175px; height: 220px; --rotation: 1.5deg; --float-duration: 10.2s; --float-delay: -1.8s; }
-.fragment--twenty { top: 75px; left: 2815px; width: 240px; height: 165px; --rotation: -0.7deg; --float-duration: 9.6s; --float-delay: -5.5s; }
-.fragment--twentyone { top: 390px; left: 2850px; width: 170px; height: 215px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -3.2s; }
-.fragment--twentytwo { top: 65px; left: 3160px; width: 165px; height: 210px; --rotation: -1.5deg; --float-duration: 9.1s; --float-delay: -6.5s; }
+.fragment--ten { top: 60px; left: 1375px; width: 80px; height: 180px; --rotation: -1deg; --float-duration: 10.4s; --float-delay: -2s; }
+.fragment--eleven { top: 400px; left: 1345px; width: 138px; height: 180px; --rotation: 1.4deg; --float-duration: 9s; --float-delay: -4s; }
+.fragment--twelve { top: 65px; left: 1670px; width: 98px; height: 180px; --rotation: -1.8deg; --float-duration: 11s; --float-delay: -6s; }
+.fragment--thirteen { top: 395px; left: 1675px; width: 93px; height: 180px; --rotation: 1deg; --float-duration: 8.6s; --float-delay: -1s; }
+.fragment--fourteen { top: 60px; left: 1980px; width: 67px; height: 180px; --rotation: 1deg; --float-duration: 9.8s; --float-delay: -5s; }
+.fragment--fifteen { top: 425px; left: 1915px; width: 200px; height: 108px; --rotation: -1.4deg; --float-duration: 10.8s; --float-delay: -3s; }
+.fragment--sixteen { top: 60px; left: 2275px; width: 71px; height: 180px; --rotation: 1.8deg; --float-duration: 8.8s; --float-delay: -7s; }
+.fragment--seventeen { top: 395px; left: 2275px; width: 69px; height: 180px; --rotation: -0.8deg; --float-duration: 11.2s; --float-delay: -2.5s; }
+.fragment--eighteen { top: 55px; left: 2570px; width: 90px; height: 180px; --rotation: -1.2deg; --float-duration: 9.3s; --float-delay: -4.5s; }
+.fragment--nineteen { top: 395px; left: 2560px; width: 112px; height: 180px; --rotation: 1.5deg; --float-duration: 10.2s; --float-delay: -1.8s; }
+.fragment--twenty { top: 95px; left: 2815px; width: 200px; height: 105px; --rotation: -0.7deg; --float-duration: 9.6s; --float-delay: -5.5s; }
+.fragment--twentyone { top: 395px; left: 2860px; width: 110px; height: 180px; --rotation: 1.2deg; --float-duration: 10.6s; --float-delay: -3.2s; }
+.fragment--twentytwo { top: 60px; left: 3200px; width: 80px; height: 180px; --rotation: -1.5deg; --float-duration: 9.1s; --float-delay: -6.5s; }
 
 ::view-transition-group(selected-work) {
   animation-duration: 720ms;
@@ -347,7 +347,7 @@ button {
 
 .detail__content {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) clamp(6.5rem, 16svh, 9rem);
+  grid-template-rows: auto minmax(0, 1fr) clamp(7.5rem, 18svh, 10rem);
   width: min(84vw, 68rem);
   height: min(88svh, 54rem);
   min-height: 0;

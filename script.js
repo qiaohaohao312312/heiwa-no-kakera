@@ -78,9 +78,9 @@ const works = [
     ["すてきな学校にする", "14-43-10.0.jpg", "みんなで協力して、すてきな学校をつくること。"],
   ].map(([title, file, noteAlt]) => ({
     title,
-    artwork: `assets/day2-art-v2/${file.replace(/\.(jpg|png)$/i, ".jpg")}?v=2`,
+    artwork: `assets/day2-art-v2/${file.replace(/\.(jpg|png)$/i, ".jpg")}?v=3`,
     artworkAlt: `${title}を描いた作品`,
-    note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}?v=2`,
+    note: `assets/day2-notes-v2/${file.replace(/\.(jpg|png)$/i, ".png")}?v=3`,
     noteAlt,
   })),
 ];
